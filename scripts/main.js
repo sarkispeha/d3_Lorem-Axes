@@ -1,4 +1,5 @@
-var width = 960,
+// dendogram 
+var width = 1000,
     height = 2200;
 
 var cluster = d3.layout.cluster()
@@ -23,6 +24,7 @@ d3.json("../data/namesNested.json", function(error, root) {
       .attr("class", "link")
       .attr("d", diagonal);
 
+console.log(link);
   var node = svg.selectAll(".node")
       .data(nodes)
     .enter().append("g")
@@ -30,7 +32,7 @@ d3.json("../data/namesNested.json", function(error, root) {
       .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
 
   node.append("circle")
-      .attr("r", 4.5);
+      .attr("r", 1);
 
   node.append("text")
       .attr("dx", function(d) { return d.children ? -8 : 8; })
@@ -40,3 +42,4 @@ d3.json("../data/namesNested.json", function(error, root) {
 });
 
 d3.select(self.frameElement).style("height", height + "px");
+// end dendogram
