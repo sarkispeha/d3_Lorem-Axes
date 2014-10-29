@@ -55,7 +55,7 @@ CodeFlower.prototype.update = function(json) {
     .attr("y2", function(d) { return d.target.y; });
 
   // Exit any old links.
-  this.link.exit().remove();
+  // this.link.exit().remove();
 
   // Update the nodes
   this.node = this.svg.selectAll("circle.node")
