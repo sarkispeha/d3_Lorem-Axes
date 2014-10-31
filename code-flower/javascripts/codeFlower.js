@@ -30,6 +30,7 @@ CodeFlower.prototype.update = function(json) {
 
   var nodes = this.flatten(this.json);
   var links = d3.layout.tree().links(nodes);
+  console.log(links);
   var total = nodes.length || 1;
 
   // remove existing text (will readd it afterwards to be sure it's on top)
@@ -124,6 +125,7 @@ CodeFlower.prototype.mouseover = function(d) {
   this.text.attr('transform', 'translate(' + d.x + ',' + (d.y - 5 - (d.children ? 3.5 : Math.sqrt(d.size) / 2)) + ')')
     .text(d.name + ": " + d.size + " loc")
     .style('display', null);
+    console.log(this);
 };
 
 CodeFlower.prototype.mouseout = function(d) {
