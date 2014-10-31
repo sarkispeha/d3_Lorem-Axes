@@ -16,8 +16,8 @@ var CodeFlower = function(selector, w, h) {
 
   this.force = d3.layout.force()
     .on("tick", this.tick.bind(this))
-    .charge(function(d) { return d._children ? -d.size / 100 : -40; })
-    .linkDistance(function(d) { return d.target._children ? 80 : 25; })
+    .charge(function(d) { return d._children ? -d.size / 40 : -40; })
+    .linkDistance(function(d) { return d.target._children ? 40 : 25; })
     .size([h, w]);
 };
 
@@ -38,7 +38,7 @@ CodeFlower.prototype.update = function(json) {
 
   // Restart the force layout
   this.force
-    .gravity(Math.atan(total / 50) / Math.PI * 0.4)
+    .gravity(Math.atan(total / 100) / Math.PI * 0.1)
     .nodes(nodes)
     .links(links)
     .start();
@@ -56,7 +56,7 @@ CodeFlower.prototype.update = function(json) {
     .attr("y2", function(d) { return d.target.y; });
 
   // Exit any old links.
-  this.link.exit().remove();
+  // this.link.exit().remove();
 
   // Update the nodes
   this.node = this.svg.selectAll("circle.node")
