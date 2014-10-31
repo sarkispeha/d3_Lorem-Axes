@@ -32,4 +32,6 @@ Object.keys(groupedYears).forEach(function(year)
 	});
 	nestedNames.children.push(outputYear);
 });
-fs.writeFileSync('./namesNested.json', JSON.stringify(nestedNames));
+// fs.writeFileSync('./namesNested.json', JSON.stringify(nestedNames));
+var names2008 = {name:'2008',children: nestedNames.children[0].children};
+fs.writeFileSync('./namesNested2008.json', JSON.stringify(names2008));
